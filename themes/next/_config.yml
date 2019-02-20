@@ -360,8 +360,8 @@ han: false
 
 # Disqus
 disqus:
-  enable: false
-  shortname:
+  enable: true
+  shortname: ACdreamer
   count: true
 
 # Hypercomments
@@ -465,7 +465,7 @@ needmoreshare2:
 #google_site_verification:
 
 # Google Analytics
-#google_analytics:
+google_analytics: UA-134827769-1
 
 # Bing Webmaster tools verification setting
 # See: https://www.bing.com/webmaster/
