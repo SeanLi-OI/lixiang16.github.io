@@ -5,9 +5,9 @@
   <subtitle>理想之国</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://lixiang-io.cn/"/>
+  <link href="https://blog.lixiang-io.cn/"/>
   <updated>2019-02-20T07:33:08.602Z</updated>
-  <id>https://lixiang-io.cn/</id>
+  <id>https://blog.lixiang-io.cn/</id>
   
   <author>
     <name>Lixiang</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>仙人掌图专题</title>
-    <link href="https://lixiang-io.cn/2018/11/03/xian-ren-zhang-tu-zhuan-ti/"/>
-    <id>https://lixiang-io.cn/2018/11/03/xian-ren-zhang-tu-zhuan-ti/</id>
+    <link href="https://blog.lixiang-io.cn/2018/11/03/xian-ren-zhang-tu-zhuan-ti/"/>
+    <id>https://blog.lixiang-io.cn/2018/11/03/xian-ren-zhang-tu-zhuan-ti/</id>
     <published>2018-11-03T13:17:00.000Z</published>
     <updated>2019-02-20T07:33:08.602Z</updated>
     
@@ -35,15 +35,15 @@
     
     </summary>
     
-      <category term="OI/ACM" scheme="https://lixiang-io.cn/categories/OI-ACM/"/>
+      <category term="OI/ACM" scheme="https://blog.lixiang-io.cn/categories/OI-ACM/"/>
     
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://lixiang-io.cn/2018/11/02/hello-world/"/>
-    <id>https://lixiang-io.cn/2018/11/02/hello-world/</id>
+    <link href="https://blog.lixiang-io.cn/2018/11/02/hello-world/"/>
+    <id>https://blog.lixiang-io.cn/2018/11/02/hello-world/</id>
     <published>2018-11-02T13:41:00.000Z</published>
     <updated>2019-02-18T14:12:56.987Z</updated>
     
