@@ -13,7 +13,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://lixiang-io.cn/
+url: https://blog.lixiang-io.cn/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -85,7 +85,8 @@ theme: hexo-theme-matery
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:SeanLi-OI/SeanLi-OI.github.io
+  repo: ubuntu@111.231.116.162:/var/repo/hexo_static
+  branch: master
 
 search:
   path: search.xml
