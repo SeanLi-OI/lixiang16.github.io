@@ -10,6 +10,7 @@ date: 2019-03-17 14:46:00
 ## 简介
 ----------------------
 * 本文基于Ubuntu16.04和Hadoop3.2.0从零搭建单机伪分布式系统，并成功运行Hadoop官方wordcount示例。
+<!--more-->
 
 ## 系统环境
 ----------------------
@@ -27,12 +28,12 @@ date: 2019-03-17 14:46:00
 
 #### 安装Java SE Development Kit
 * 解压jdk-8u201-linux-x64.tar.gz并移动文件夹
-  ```
+  ```bash
   $ mkdir /usr/lib/jvm
   $ tar -zxvf jdk-8u201-linux-x64.tar.gz -C /usr/lib/jvm
   ```
 * 编辑.bashrc，添加环境变量
-  ```
+  ```bash
   export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_201
   export JRE_HOME=${JAVA_HOME}/jre
   export CLASSPATH=.:{JAVA_HOME}/lib:${JRE_HOME}/lib
@@ -40,7 +41,7 @@ date: 2019-03-17 14:46:00
   ```
 * 测试java环境配置
 
-  ```
+  ```bash
   $ java -version
   java version "1.8.0_201"
   Java(TM) SE Runtime Environment (build 1.8.0_201-b09)
@@ -60,73 +61,70 @@ date: 2019-03-17 14:46:00
     
 ### 安装Apache Hadoop
    * 解压hadoop-3.2.0.tar.gz，移动并进入文件夹
-      ```
+      ```bash
       $ mkdir /usr/local/hadoop
       $ tar -zxvf hadoop-3.2.0.tar.gz -C /usr/local/hadoop
       $ cd /usr/local/hadoop/hadoop-3.2.0
       ```
    * 配置Hadoop内部环境变量
      * 编辑 etc/hadoop/hadoop-env.sh
-      ```
-      export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_201
-      # set to the root of your Java installation
-      export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_201
-      ```
+    ```bash
+    export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_201
+    # set to the root of your Java installation
+    export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_201
+    ```
      * 测试环境配置
-
-        ```
-        $ bin/hadoop version
-        Hadoop 3.2.0
-      Source code repository https://github.com/apache/hadoop.git -r e97acb3bd8f3befd27418996fa5d4b50bf2e17bf
-      Compiled by sunilg on 2019-01-08T06:08Z
-      Compiled with protoc 2.5.0
-      From source with checksum d3f0795ed0d9dc378e2c785d3668f39
-      This command was run using /usr/local/hadoop/hadoop-3.2.0/share/hadoop/common/hadoop-common-3.2.0.jar
-
-        ```
-        
+    ```bash
+    $ bin/hadoop version
+    Hadoop 3.2.0
+    Source code repository https://github.com/apache/hadoop.git -r e97acb3bd8f3befd27418996fa5d4b50bf2e17bf
+    Compiled by sunilg on 2019-01-08T06:08Z
+    Compiled with protoc 2.5.0
+    From source with checksum d3f0795ed0d9dc378e2c785d3668f39
+    This command was run using /usr/local/hadoop/hadoop-3.2.0/share/hadoop/common/hadoop-common-3.2.0.jar
+    ```
+    
 * 编辑.bashrc，添加环境变量
-    ```
-    export HADOOP_HOME=/usr/local/hadoop/hadoop-3.2.0
-    export PATH=$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH
-    ```
+```bash
+export HADOOP_HOME=/usr/local/hadoop/hadoop-3.2.0
+export PATH=$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH
+```
 * 配置 etc/hadoop/core-site.xml
-    ```
-    <configuration>
-        <property>
-            <name>fs.defaultFS</name>
-            <value>hdfs://localhost:9000</value>
-        </property>
-    </configuration>
-    ```
+```xml
+<configuration>
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://localhost:9000</value>
+    </property>
+</configuration>
+```
 * 配置 etc/hadoop/hdfs-site.xml
-    ```
-    <configuration>
-        <property>
-            <name>dfs.replication</name>
-            <value>1</value>
-        </property>
-    </configuration>
-    ```
+```xml
+<configuration>
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+    </property>
+</configuration>
+```
 
 
 ## 测试运行Hadoop
 ------------------------
 * 格式化namenode
-```
+```bash
 $ bin/hdfs namenode -format
 ```
 * 启动namenode和datanode
-```
+```bash
 $ sbin/start-dfs.sh
 ```
 * 此时可以通过浏览器访问namenode
-```
-http://localhost:9870/
-/*CVM请注意打开9870端口*/
-```
+  * [http://localhost:9870/](http://localhost:9870/)
+  * CVM请注意打开9870端口*
+
 * 上传本机文件到HDFS（[HDFS常用命令](https://www.cnblogs.com/m-study/p/8343169.html)） 
-```
+```bash
 $ bin/hdfs dfs -mkdir input
 $ bin/hdfs dfs -put /home/input.txt input
 ```
@@ -135,11 +133,11 @@ $ bin/hdfs dfs -put /home/input.txt input
 $ hadoop jar $HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.0.jar wordcount  /input/input.txt  /output
 ```
 * 查看结果
-```
+```bash
 $ bin/hdfs dfs -cat output/*
 ```
 * 停止namenode和datanode
-```
+```bash
 $ sbin/stop-dfs.sh
 ```
 
