@@ -85,7 +85,9 @@ theme: hexo-theme-matery
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: ubuntu@111.231.116.162:/var/repo/hexo_static
+  repo:
+        CVM: ubuntu@111.231.116.162:/var/repo/hexo_static
+        github: git@github.com:SeanLi-OI/SeanLi-OI.github.io.git
   branch: master
 
 search:
