@@ -374,21 +374,24 @@
 <li>本文下载版本：jdk-8u201-linux-x64.tar.gz</li>
 </ul>
 <h4 id="安装Java-SE-Development-Kit"><a href="#安装Java-SE-Development-Kit" class="headerlink" title="安装Java SE Development Kit"></a>安装Java SE Development Kit</h4><ul>
-<li>解压jdk-8u201-linux-x64.tar.gz并移动文件夹<pre><code>$ mkdir /usr/lib/jvm
-$ tar -zxvf jdk-8u201-linux-x64.tar.gz -C /usr/lib/jvm
-</code></pre></li>
-<li>编辑.bashrc，添加环境变量<pre><code>export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_201
-export JRE_HOME=${JAVA_HOME}/jre
-export CLASSPATH=.:{JAVA_HOME}/lib:${JRE_HOME}/lib
-export PATH=${JAVA_HOME}/bin:$PATH
-</code></pre></li>
+<li>解压jdk-8u201-linux-x64.tar.gz并移动文件夹<pre class=" language-bash"><code class="language-bash">$ <span class="token function">mkdir</span> /usr/lib/jvm
+$ <span class="token function">tar</span> -zxvf jdk-8u201-linux-x64.tar.gz -C /usr/lib/jvm
+</code></pre>
+</li>
+<li>编辑.bashrc，添加环境变量<pre class=" language-bash"><code class="language-bash"><span class="token function">export</span> JAVA_HOME<span class="token operator">=</span>/usr/lib/jvm/jdk1.8.0_201
+<span class="token function">export</span> JRE_HOME<span class="token operator">=</span><span class="token variable">${JAVA_HOME}</span>/jre
+<span class="token function">export</span> CLASSPATH<span class="token operator">=</span>.:<span class="token punctuation">{</span>JAVA_HOME<span class="token punctuation">}</span>/lib:<span class="token variable">${JRE_HOME}</span>/lib
+<span class="token function">export</span> PATH<span class="token operator">=</span><span class="token variable">${JAVA_HOME}</span>/bin:<span class="token variable">$PATH</span>
+</code></pre>
+</li>
 <li><p>测试java环境配置</p>
-<pre><code>$ java -version
-java version &quot;1.8.0_201&quot;
-Java(TM) SE Runtime Environment (build 1.8.0_201-b09)
-Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
+<pre class=" language-bash"><code class="language-bash">$ java -version
+java version <span class="token string">"1.8.0_201"</span>
+Java<span class="token punctuation">(</span>TM<span class="token punctuation">)</span> SE Runtime Environment <span class="token punctuation">(</span>build 1.8.0_201-b09<span class="token punctuation">)</span>
+Java HotSpot<span class="token punctuation">(</span>TM<span class="token punctuation">)</span> 64-Bit Server VM <span class="token punctuation">(</span>build 25.201-b09, mixed mode<span class="token punctuation">)</span>
 
-</code></pre></li>
+</code></pre>
+</li>
 </ul>
 <h2 id="搭建Hadoop环境"><a href="#搭建Hadoop环境" class="headerlink" title="搭建Hadoop环境"></a>搭建Hadoop环境</h2><hr>
 <h3 id="下载Apache-Hadoop"><a href="#下载Apache-Hadoop" class="headerlink" title="下载Apache Hadoop"></a>下载Apache Hadoop</h3><ul>
@@ -396,66 +399,78 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
 <li>本文下载版本(from tuna)：<a href="https://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-3.2.0/hadoop-3.2.0.tar.gz" target="_blank" rel="noopener">hadoop-3.2.0.tar.gz</a></li>
 </ul>
 <h3 id="安装Apache-Hadoop"><a href="#安装Apache-Hadoop" class="headerlink" title="安装Apache Hadoop"></a>安装Apache Hadoop</h3><ul>
-<li>解压hadoop-3.2.0.tar.gz，移动并进入文件夹<pre><code> $ mkdir /usr/local/hadoop
- $ tar -zxvf hadoop-3.2.0.tar.gz -C /usr/local/hadoop
- $ cd /usr/local/hadoop/hadoop-3.2.0
-</code></pre></li>
-<li><p>配置Hadoop内部环境变量</p>
-<ul>
-<li>编辑 etc/hadoop/hadoop-env.sh<pre><code>export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_201
-# set to the root of your Java installation
-export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_201
-</code></pre></li>
-<li><p>测试环境配置</p>
-<pre><code> $ bin/hadoop version
- Hadoop 3.2.0
+<li>解压hadoop-3.2.0.tar.gz，移动并进入文件夹<pre class=" language-bash"><code class="language-bash"> $ <span class="token function">mkdir</span> /usr/local/hadoop
+ $ <span class="token function">tar</span> -zxvf hadoop-3.2.0.tar.gz -C /usr/local/hadoop
+ $ <span class="token function">cd</span> /usr/local/hadoop/hadoop-3.2.0
+</code></pre>
+</li>
+<li>配置Hadoop内部环境变量<ul>
+<li>编辑 etc/hadoop/hadoop-env.sh<pre class=" language-bash"><code class="language-bash"><span class="token function">export</span> JAVA_HOME<span class="token operator">=</span>/usr/lib/jvm/jdk1.8.0_201
+<span class="token comment" spellcheck="true"># set to the root of your Java installation</span>
+<span class="token function">export</span> JAVA_HOME<span class="token operator">=</span>/usr/lib/jvm/jdk1.8.0_201
+</code></pre>
+</li>
+<li>测试环境配置<pre class=" language-bash"><code class="language-bash">$ bin/hadoop version
+Hadoop 3.2.0
 Source code repository https://github.com/apache/hadoop.git -r e97acb3bd8f3befd27418996fa5d4b50bf2e17bf
 Compiled by sunilg on 2019-01-08T06:08Z
 Compiled with protoc 2.5.0
-From source with checksum d3f0795ed0d9dc378e2c785d3668f39
-This command was run using /usr/local/hadoop/hadoop-3.2.0/share/hadoop/common/hadoop-common-3.2.0.jar
-
-</code></pre></li>
+From <span class="token function">source</span> with checksum d3f0795ed0d9dc378e2c785d3668f39
+This <span class="token function">command</span> was run using /usr/local/hadoop/hadoop-3.2.0/share/hadoop/common/hadoop-common-3.2.0.jar
+</code></pre>
+</li>
 </ul>
 </li>
 </ul>
 <ul>
-<li>编辑.bashrc，添加环境变量<pre><code>  export HADOOP_HOME=/usr/local/hadoop/hadoop-3.2.0
-  export PATH=$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH
-</code></pre></li>
-<li>配置 etc/hadoop/core-site.xml<pre><code>  &lt;configuration&gt;
-      &lt;property&gt;
-          &lt;name&gt;fs.defaultFS&lt;/name&gt;
-          &lt;value&gt;hdfs://localhost:9000&lt;/value&gt;
-      &lt;/property&gt;
-  &lt;/configuration&gt;
-</code></pre></li>
-<li>配置 etc/hadoop/hdfs-site.xml<pre><code>  &lt;configuration&gt;
-      &lt;property&gt;
-          &lt;name&gt;dfs.replication&lt;/name&gt;
-          &lt;value&gt;1&lt;/value&gt;
-      &lt;/property&gt;
-  &lt;/configuration&gt;
-</code></pre></li>
+<li>编辑.bashrc，添加环境变量<pre class=" language-bash"><code class="language-bash"><span class="token function">export</span> HADOOP_HOME<span class="token operator">=</span>/usr/local/hadoop/hadoop-3.2.0
+<span class="token function">export</span> PATH<span class="token operator">=</span><span class="token variable">$HADOOP_HOME</span>/bin:<span class="token variable">$HADOOP_HOME</span>/sbin:<span class="token variable">$PATH</span>
+</code></pre>
+</li>
+<li>配置 etc/hadoop/core-site.xml<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>fs.defaultFS<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">></span></span>hdfs://localhost:9000<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span>
+</code></pre>
+</li>
+<li>配置 etc/hadoop/hdfs-site.xml<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>dfs.replication<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">></span></span>1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span>
+</code></pre>
+</li>
 </ul>
 <h2 id="测试运行Hadoop"><a href="#测试运行Hadoop" class="headerlink" title="测试运行Hadoop"></a>测试运行Hadoop</h2><hr>
 <ul>
-<li>格式化namenode<pre><code>$ bin/hdfs namenode -format
-</code></pre></li>
-<li>启动namenode和datanode<pre><code>$ sbin/start-dfs.sh
-</code></pre></li>
-<li>此时可以通过浏览器访问namenode<pre><code>http://localhost:9870/
-/*CVM请注意打开9870端口*/
-</code></pre></li>
-<li>上传本机文件到HDFS（<a href="https://www.cnblogs.com/m-study/p/8343169.html" target="_blank" rel="noopener">HDFS常用命令</a>） <pre><code>$ bin/hdfs dfs -mkdir input
+<li>格式化namenode<pre class=" language-bash"><code class="language-bash">$ bin/hdfs namenode -format
+</code></pre>
+</li>
+<li>启动namenode和datanode<pre class=" language-bash"><code class="language-bash">$ sbin/start-dfs.sh
+</code></pre>
+</li>
+<li><p>此时可以通过浏览器访问namenode</p>
+<ul>
+<li><a href="http://localhost:9870/" target="_blank" rel="noopener">http://localhost:9870/</a></li>
+<li>CVM请注意打开9870端口*</li>
+</ul>
+</li>
+<li><p>上传本机文件到HDFS（<a href="https://www.cnblogs.com/m-study/p/8343169.html" target="_blank" rel="noopener">HDFS常用命令</a>） </p>
+<pre class=" language-bash"><code class="language-bash">$ bin/hdfs dfs -mkdir input
 $ bin/hdfs dfs -put /home/input.txt input
-</code></pre></li>
+</code></pre>
+</li>
 <li>运行官方示例wordcount<pre><code>$ hadoop jar $HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.0.jar wordcount  /input/input.txt  /output
 </code></pre></li>
-<li>查看结果<pre><code>$ bin/hdfs dfs -cat output/*
-</code></pre></li>
-<li>停止namenode和datanode<pre><code>$ sbin/stop-dfs.sh
-</code></pre></li>
+<li>查看结果<pre class=" language-bash"><code class="language-bash">$ bin/hdfs dfs -cat output/*
+</code></pre>
+</li>
+<li>停止namenode和datanode<pre class=" language-bash"><code class="language-bash">$ sbin/stop-dfs.sh
+</code></pre>
+</li>
 </ul>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><hr>
 <ul>
